@@ -6,9 +6,13 @@ A plugin for [interception-tools](https://gitlab.com/interception/linux/tools) t
 
 # Installing
 
+requires meson, ninja, and a compiler to build.
+
 ```
-meson builddir
-sudo cp builddir/meta2back /usr/local/bin/
+meson setup builddir
+cd builddir
+ninja
+sudo cp meta2back /usr/local/bin/
 ```
 
 Then add to your interception-tools pipeline.
