@@ -1,2 +1,2 @@
-project('win2back', 'c')
-executable('win2back', 'win2back.c')
+project('super2back', 'c')
+executable('super2back', 'super2back.c')
