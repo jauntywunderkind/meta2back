@@ -1,0 +1,12 @@
+# set up a mux called 'mouseback'
+- CMD: mux -c mouseback
+# intercept the mouse, add the mux, and output it
+- JOB: "intercept mux -o mouseback | mux -i mouseback | uinput -d $DEVNODE"
+  DEVICE:
+    NAME: Microsoft Sculpt Comfort Mouse
+# read the mouse's keyboard, convert meta2back, and inject into the mouseback mux.
+- JOB: "intercept -g $DEVNODE | meta2back | mux -o mouseback"
+  DEVICE:
+    NAME: Microsoft Sculpt Comfort Mouse Keyboard
+    EVENTS:
+      EV_KEY: [KEY_LEFTMETA]
